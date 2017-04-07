@@ -3,6 +3,19 @@ const prod = process.argv.indexOf('-p') !== -1;
 if(prod){
 
     var webpack = require('webpack');
+    var query = {
+        babelrc: false,
+        presets: [
+            'es2015',
+            'stage-0',
+            'react',
+            'env',
+        ],
+        plugins: [
+            'transform-decorators-legacy',
+            'transform-object-rest-spread'
+        ]
+    }
 
     module.exports = {
         entry: './index.js',
@@ -15,20 +28,11 @@ if(prod){
                 {
                     test: /\.js$/,
                     exclude: /node_modules/,
-                    loader: 'babel',
-                    query: {
-                        babelrc: false,
-                        presets: [
-                            'es2015',
-                            'stage-0',
-                            'react',
-                            'env',
-                        ],
-                        plugins: [
-                            'transform-decorators-legacy',
-                            'transform-object-rest-spread'
-                        ]
-                    }
+                    loader: 'babel?'+JSON.stringify(query),
+                },
+                {
+                    test: /\.json$/,
+                    loader: 'json',
                 }
             ],
 
