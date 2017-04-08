@@ -21,16 +21,13 @@ export default class App extends Component {
             this.props.dispatch(Actions.setGlobals(response.data))
         })
     }
-    componentWillUpdate(){
-        console.log('will update')
-    }
     render(){
         if(this.props.globals){
             return(
                 <div>
                     <header>
-                        <button className={this.props.showBackButton ? 'showBackButton backButton' : 'hideBackButton backButton'} onClick={browserHistory.goBack}><i className="fa fa-chevron-left" aria-hidden="true"></i></button>
-                        <Link className={this.props.showBackButton ? 'logo withBackButton' : 'logo'} to='/'><img src={'/app/themes/0031flyfishing/images/logo.svg'} alt="logo" /></Link>
+                        <button className={this.props.showBackButton && this.props.location.pathname !== '/' ? 'showBackButton backButton' : 'hideBackButton backButton'} onClick={browserHistory.goBack}><i className="fa fa-chevron-left" aria-hidden="true"></i></button>
+                        <Link className={this.props.showBackButton && this.props.location.pathname !== '/'  ? 'logo withBackButton' : 'logo'} to='/'><img src={'/app/themes/0031flyfishing/images/logo.svg'} alt="logo" /></Link>
                         <MainNav />
                     </header>
                     <div className="pageContent">
