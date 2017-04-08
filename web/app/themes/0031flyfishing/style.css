@@ -26,7 +26,6 @@ header .backButton.hideBackButton { transform: scale(0); opacity: 0; }
 @media(max-width: 700px){
     header .logo { height: 4rem; display: flex; }
     header .logo.withBackButton { transform: translateX(3rem); margin-right: 5rem; }
-    header .backButton { left: 2rem; }
 }
 
 @media(max-width: 500px){
