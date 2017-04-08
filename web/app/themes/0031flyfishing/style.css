@@ -229,6 +229,7 @@ h3 { font-size: 3rem; font-weight: 100; text-transform: uppercase; }
 h4 { font-family: 'Open Sans', sans-serif; font-size: 2rem; font-weight: 500; }
 
 p, ul, ol { font-size: 2.2rem; line-height: 3.5rem; font-weight: 300; -webkit-font-smoothing: antialiased; }
+p { word-break: break-all; }
 
 a { color: #bb0000; }
 a:hover, a:active, a:focus { color: #bb0000; }
