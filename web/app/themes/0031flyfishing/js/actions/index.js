@@ -50,3 +50,9 @@ export function getMenus(menu, name){
         data: { menu, name }
     }
 }
+
+export function routerChange(){
+    return {
+        type: 'ROUTER_CHANGE'
+    }
+}

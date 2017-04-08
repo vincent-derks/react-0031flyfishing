@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import { routerMiddleware } from 'react-router-redux'
+import * as Actions from './actions'
 
 // Main reducer
 import rootReducer from './reducers'
@@ -19,12 +21,14 @@ import Single from './components/single'
 import NoMatch from './components/no-match'
 
 // Create the main store
-let store = createStore(rootReducer, window.devToolsExtension && window.devToolsExtension())
+let store = createStore(rootReducer, applyMiddleware(routerMiddleware(browserHistory)), window.devToolsExtension && window.devToolsExtension())
+
+const routerChange = () => { store.dispatch(Actions.routerChange()) }
 
 ReactDOM.render((
     <Provider store={store}>
         <Router history={browserHistory} onUpdate={() => window.scrollTo(0, 0)}>
-            <Route path="/" component={App}>
+            <Route path="/" component={App} onChange={routerChange}>
                 <IndexRoute component={Home}></IndexRoute>
                 <Route path="/flyfishing-articles" component={Articles}></Route>
                 <Route path="/videos" component={Videos}></Route>

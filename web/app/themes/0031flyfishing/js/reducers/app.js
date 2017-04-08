@@ -2,7 +2,8 @@
 const initialState = {
     globals: {},
     pages: {},
-    menus: {}
+    menus: {},
+    showBackButton: false
 }
 
 const appReducer = (state = initialState, action) => {
@@ -30,6 +31,11 @@ const appReducer = (state = initialState, action) => {
                     ...newState.menus,
                     [action.data.name]: action.data.menu
                 }
+            }
+        case 'ROUTER_CHANGE':
+            return {
+                ...newState,
+                showBackButton: true
             }
         default:
             return newState
