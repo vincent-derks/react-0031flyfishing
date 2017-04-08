@@ -19,7 +19,7 @@ header { display: flex; background: rgba(255,255,255,0.95); padding: 2rem 5rem; 
 header .logo { width: 400px; max-width: 100%; align-self: flex-start; animation: fadeIn 0.5s ease-in-out; animation-fill-mode: backwards; transition: all 0.2s ease-in-out; }
 header .logo.withBackButton { transform: translateX(10rem); margin-right: 10rem; }
 
-header .backButton { background: none; color: #bb0000; border: none; font-size: 3rem; transition: all 0.2s ease-in-out; position: absolute; }
+header .backButton { background: none; color: #bb0000; border: none; font-size: 3rem; transition: all 0.2s ease-in-out; position: absolute; padding: 0; }
 header .backButton.showBackButton { transform: scale(1); opacity: 1; }
 header .backButton.hideBackButton { transform: scale(0); opacity: 0; }
 
